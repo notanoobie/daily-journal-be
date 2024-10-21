@@ -164,7 +164,7 @@ app.post("/api/daily-entry", async (req, res) => {
         updated_stats.image = 3;
       }
       const date = new Date();
-      
+      console.log( updated_stats.charisma);
       const embeddingResponse = await openai.embeddings.create({
         model: "text-embedding-ada-002",
         input: `Date:${dateToWords(date)} ${entry}`
