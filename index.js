@@ -217,7 +217,7 @@ app.post("/api/daily-entry", async (req, res) => {
       // Include all stats in the response
       updated_stats.water = water;
       updated_stats.smoke = smoke;
-      updated_stats.porn_streak = newpornStreak;
+      updated_stats.porn_streak = newPornStreak;
       updated_stats.workout_streak = newWorkoutStreak;
 
       res.status(200).json(updated_stats);
