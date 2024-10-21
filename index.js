@@ -123,13 +123,13 @@ app.post("/api/ask", async (req, res) => {
 
 
 app.post("/api/daily-entry", async (req, res) => {
-  const { entry, water, smoke, nsfw, workout } = req.body;
-  
+  const { entry, water, smoke, porn, workout } = req.body;
+  console.log (req.body);
   async function main() {
     try {
       // Validate inputs
       if (typeof water !== 'number' || typeof smoke !== 'number' ||
-          typeof nsfw !== 'boolean' || typeof workout !== 'boolean') {
+          typeof porn !== 'boolean' || typeof workout !== 'boolean') {
         return res.status(400).json({ error: "Invalid input types" });
       }
 
@@ -190,7 +190,7 @@ app.post("/api/daily-entry", async (req, res) => {
           skill = EXCLUDED.skill,
           water = EXCLUDED.water,
           smoke = EXCLUDED.smoke,
-          nsfw_streak = EXCLUDED.nsfw_streak,
+          porn_streak = EXCLUDED.porn_streak,
           workout_streak = EXCLUDED.workout_streak,
           journal_entry = EXCLUDED.journal_entry,
           embedding = EXCLUDED.embedding
@@ -206,7 +206,7 @@ app.post("/api/daily-entry", async (req, res) => {
         updated_stats.skill != 0 ? updated_stats.skill : result.rows[0].skill,
         water,
         smoke,
-        newNsfwStreak,
+        newpornStreak,
         newWorkoutStreak,
         entry,
         embedding
@@ -217,7 +217,7 @@ app.post("/api/daily-entry", async (req, res) => {
       // Include all stats in the response
       updated_stats.water = water;
       updated_stats.smoke = smoke;
-      updated_stats.nsfw_streak = newNsfwStreak;
+      updated_stats.porn_streak = newpornStreak;
       updated_stats.workout_streak = newWorkoutStreak;
 
       res.status(200).json(updated_stats);
@@ -248,7 +248,7 @@ app.get("/api/stats", async (req, res) => {
         skill: 99,
         water: 0,
         smoke: 0,
-        nsfw_streak: 0,
+        porn_streak: 0,
         workout_streak: 0,
         image: 1
       });
