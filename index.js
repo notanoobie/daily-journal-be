@@ -211,7 +211,7 @@ app.post("/api/daily-entry", async (req, res) => {
         entry,
         embedding
       ];
-
+      console.log(values);
       const dbResult = await client.query(insertQuery, values);
       
       // Include all stats in the response
