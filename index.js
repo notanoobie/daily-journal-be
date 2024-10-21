@@ -206,7 +206,7 @@ app.post("/api/daily-entry", async (req, res) => {
         updated_stats.skill != 0 ? updated_stats.skill : result.rows[0].skill,
         water,
         smoke,
-        newpornStreak,
+        newPornStreak,
         newWorkoutStreak,
         entry,
         embedding
