@@ -213,7 +213,7 @@ app.post("/api/daily-entry", async (req, res) => {
       updated_stats.water = water;
       updated_stats.smoke = smoke;
   
-
+      console.log( updated_stats);
       res.status(200).json(updated_stats);
     } catch (error) {
       console.error("Error updating stats:", error);
